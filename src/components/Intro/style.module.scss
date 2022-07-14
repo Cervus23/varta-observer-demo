@@ -1,0 +1,90 @@
+.introContainer {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: auto;
+  padding: 60px;
+  row-gap: 200px;
+
+  .text {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+  }
+
+  .header {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: auto;
+    row-gap: 80px;
+
+    .titleBox {
+      display: grid;
+      grid-template-rows: auto;
+      grid-template-columns: repeat(2, auto);
+      column-gap: 50px;
+      justify-content: center;
+
+      h1 {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        font-size: 48px;
+        font-weight: 600;
+      }
+
+      .logo {
+        width: 120px;
+        height: 120px;
+        background-color: red;
+      }
+    }
+
+    .introText {
+      text-align: center;
+    }
+
+    .techLogoBox {
+      display: grid;
+      grid-template-rows: 200px;
+      grid-template-columns: repeat(3, 200px);
+      column-gap: 210px;
+      justify-content: center;
+
+      .techLogo {
+        background-color: red;
+      }
+    }
+  }
+
+  .contentBox {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    column-gap: 100px;
+
+    .contentImage {
+      width: 700px;
+      height: 500px;
+      background-color: red;
+    }
+
+    .container {
+      display: grid;
+      grid-template-rows: repeat(3, auto);
+      grid-template-columns: auto;
+      row-gap: 50px;
+    }
+
+    &.firstBox {
+      .text {
+        text-align: right;
+      }
+    }
+
+    &.secondBox {
+      .text {
+        text-align: left;
+      }
+    }
+  }
+}
