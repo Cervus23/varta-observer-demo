@@ -1,0 +1,32 @@
+@import "../../scss/colors.scss";
+// @import '../../fonts/fonts.scss';
+
+.applyBtn {
+  display: grid;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  height: 40px;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  background-color: $btn;
+  font-family: "Commissioner-SemiBold";
+  font-size: 16px;
+  line-height: 19.5px;
+  color: $btnFont;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  &.disabled {
+    background-color: $btnInactive;
+    color: $altFont;
+  }
+
+  &:active {
+    padding-left: 5px;
+    padding-top: 3px;
+    background-color: $btnActive;
+  }
+}

@@ -24,6 +24,7 @@
       grid-template-columns: repeat(2, auto);
       column-gap: 50px;
       justify-content: center;
+      align-items: center;
 
       h1 {
         margin: 0;
@@ -35,7 +36,6 @@
       .logo {
         width: 120px;
         height: 120px;
-        background-color: red;
       }
     }
 
@@ -51,7 +51,8 @@
       justify-content: center;
 
       .techLogo {
-        background-color: red;
+        width: 200px;
+        height: 200px;
       }
     }
   }

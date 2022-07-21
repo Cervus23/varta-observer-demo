@@ -1,0 +1,157 @@
+@import "../../scss/colors.scss";
+// @import '../../fonts/fonts.scss';
+
+.underlay {
+  position: absolute;
+  top: 25px;
+  left: 260px;
+  display: grid;
+  z-index: 998;
+  align-items: center;
+  justify-content: center;
+  width: calc(100vw - 260px);
+  height: calc(100vh - 25px - 146px - 18px);
+  background-color: rgba($color: #000000, $alpha: 0.5);
+
+  .loadWindow {
+    display: grid;
+    grid-template-areas: "cell";
+    justify-content: center;
+    align-items: center;
+
+    .outerCircle {
+      display: grid;
+      grid-area: cell;
+      z-index: 999;
+      align-self: center;
+      justify-self: center;
+      grid-template-areas:
+        "topLeft torRight"
+        "bottomLeft bottomRight";
+      width: 85px;
+      height: 85px;
+      border: solid 1px $logo;
+      background-color: $bgrndPrimary;
+      border-radius: 50%;
+      overflow: hidden;
+      animation: 1.5s infinite rotation;
+      animation-timing-function: cubic-bezier(0.26, 0.07, 0.13, 0.69);
+      .topLeftSegment {
+        grid-area: topLeft;
+        background-color: $logo;
+      }
+
+      .bottomRightSegment {
+        grid-area: bottomRight;
+        background-color: $logo;
+      }
+
+      &.outerImporting {
+        width: 127.5px;
+        height: 127.5px;
+      }
+    }
+
+    .iconBckgrnd {
+      display: grid;
+      grid-area: cell;
+      z-index: 1000;
+      grid-template-rows: fit-content;
+      justify-content: center;
+      align-items: center;
+      justify-self: center;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: $bgrndPrimary;
+      border: solid 1px $logo;
+      .iconBack {
+        display: grid;
+        justify-content: center;
+        align-items: end;
+        width: 37px;
+        height: 50px;
+        background: url("../../img/iconBack64.svg") no-repeat center;
+        animation: 0.4s infinite alternate animIcon;
+        animation-timing-function: cubic-bezier(0.26, 0.07, 0.13, 0.69);
+      }
+      .iconFront {
+        width: 21px;
+        height: 30px;
+        background: url("../../img/iconFront64.svg") no-repeat center;
+      }
+
+      &.iconImporting {
+        width: 105px;
+        height: 105px;
+
+        .iconBack {
+          width: 55.5px;
+          height: 75px;
+        }
+        .iconFront {
+          width: 31.5px;
+          height: 45px;
+        }
+      }
+    }
+    .textContainer {
+      display: grid;
+      font-family: "Montserrat-Regular";
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: $altFont;
+      .loadText {
+        text-align: center;
+        margin: 0;
+        margin-top: 10px;
+
+        &.importing {
+          color: $mainFont;
+          font-family: "Montserrat-SemiBold";
+          font-size: 13pt;
+        }
+      }
+    }
+  }
+
+  &.expandedLeft {
+    width: 100%;
+    left: 0;
+  }
+
+  &.expandedDown {
+    height: calc(100vh - 25px - 14px - 18px);
+  }
+
+  &.noUnderlay {
+    background: none;
+    width: fit-content;
+    height: fit-content;
+    top: 50%;
+    left: 45%;
+  }
+}
+
+@keyframes animIcon {
+  to {
+    transform: scale(0.85);
+  }
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes processing {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 10%;
+  }
+}

@@ -1,0 +1,97 @@
+@import "../../../scss/colors.scss";
+// @import '../../../fonts/fonts.scss';
+
+.radioFilter {
+  display: grid;
+  row-gap: 10px;
+  overflow: hidden;
+  transition: max-height 0.5s;
+  background-color: $mainBgrnd;
+  &.diasbled {
+    background-color: $mainInactive;
+  }
+  &.odd {
+    background-color: $mainOddBgrnd;
+  }
+
+  &.odd.diasbled {
+    background-color: $mainInactiveOddBgrnd;
+  }
+
+  .filterHeader {
+    height: 30px;
+    display: grid;
+    grid-template-columns: auto 12px;
+    margin-right: 15px;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    .filterTitle {
+      font-family: "Commissioner-Medium";
+      font-size: 15px;
+      line-height: 17px;
+      text-transform: uppercase;
+      margin: 0;
+      padding-left: 20px;
+    }
+    .chevronImg {
+      transition: all 0.5s;
+      &.dropdown {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .filterMain {
+    display: grid;
+    row-gap: 10px;
+    margin-bottom: 10px;
+    .radioItem {
+      .radioButton {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        + label {
+          display: grid;
+          width: fit-content;
+          grid-template-columns: max-content max-content;
+          column-gap: 10px;
+          align-items: center;
+          margin-left: 15px;
+          user-select: none;
+          cursor: pointer;
+          &.disabled {
+            color: $disabledFont;
+          }
+        }
+        + label::before {
+          content: "";
+          width: 20px;
+          height: 20px;
+          box-sizing: border-box;
+          border: solid 1px $mainBorder;
+          border-radius: 50%;
+          background-color: $inputBgrnd;
+          cursor: pointer;
+          transition: all 0.1s;
+        }
+        + .disabled::before {
+          background: transparent;
+        }
+        &:checked + label::before {
+          border: solid 1px $active;
+          background: radial-gradient($active 40%, $inputBgrnd 50%);
+        }
+        &:checked + .disabled::before {
+          border: solid 1px $mainBorder;
+          background: transparent;
+        }
+      }
+
+      .radioName {
+        font-family: "Montserrat-Regular";
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+  }
+}

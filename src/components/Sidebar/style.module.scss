@@ -1,0 +1,93 @@
+@import '../../scss/colors.scss';
+
+.sidebar {
+  position: absolute;
+  z-index: 1;
+  top: 25px;
+  bottom: 18px;
+  left: 0;
+  width: 260px;
+  height: calc(100% - 18px - 25px);
+  background-color: $sidebarBgrnd;
+  transition: left 0.5s;
+  color: $mainFont;
+  overflow-y: auto;
+  direction: rtl;
+  .loadLabel {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    font-family: 'Commissioner';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19.5px;
+    text-transform: uppercase;
+    color: $main;
+    text-align: center;
+    &:hover {
+      color: $main;
+    }
+    &:active {
+      color: $main;
+    }
+  }
+  &.collapse {
+    left: -260px;
+  }
+  &.diasbled {
+    background-color: $sidebarInactiveBgrnd;
+  }
+
+  & * {
+    direction: ltr;
+  }
+}
+
+.collapser {
+  position: absolute;
+  z-index: 200;
+  top: 35px;
+  left: 270px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url('../../img/collapseLeft.svg') center no-repeat;
+  background-size: 37px;
+  background-color: $bgrndPrimary;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  transition: left 0.5s;
+
+  &.expand {
+    left: 10px;
+    transform: rotateY(180deg);
+    background-color: $bgrndPrimary;
+  }
+
+  &:hover {
+    background-color: rgb(235, 235, 235);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $sidebarBgrnd;
+  border-right: solid 1px $scrollBorder;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $sidebarScroll;
+  width: 3px;
+  border-right: solid 1px $scrollBorder;
+
+  &:hover {
+    background: $sidebarScrollHover;
+  }
+}

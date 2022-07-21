@@ -1,0 +1,91 @@
+@import '../../scss/colors.scss';
+
+.infoBlock {
+  position: absolute;
+  z-index: 500;
+  bottom: 18px;
+  left: 260px;
+  display: grid;
+  grid-template-rows: 15px max-content;
+  height: 146px;
+  width: calc(100% - 260px);
+  background-color: $infoBlock;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: left 0.5s, bottom 0.4s, width 0.5s;
+
+  .infoElements {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-rows: 100%;
+    column-gap: 40px;
+    margin-top: 10px;
+  }
+
+  .collapser {
+    height: 15px;
+    outline: none;
+    border: none;
+    padding: 0;
+    background: url('../../img/arrowDown.svg') center no-repeat;
+    background-size: 40px;
+    background-color: $collapser;
+
+    &:hover {
+      background: url('../../img/arrowDownActive.svg') center no-repeat;
+      background-size: 40px;
+      background-color: $collapserActive;
+    }
+
+    &.expand {
+      background: url('../../img/arrowDown.svg') center no-repeat;
+      background-size: 40px;
+      transform: rotateX(180deg);
+      background-color: $collapser;
+
+      &:hover {
+        background: url('../../img/arrowDownActive.svg') center no-repeat;
+        background-size: 40px;
+        transform: rotateX(180deg);
+        background-color: $collapserActive;
+      }
+    }
+  }
+
+  &.expandedLeft {
+    left: 0px;
+    width: 100%;
+  }
+
+  &.collapsed {
+    bottom: -114px;
+  }
+
+  &.inactive {
+    background-color: $infoBlockInactive;
+
+    .collapser {
+      background-color: $collapserDisabled;
+
+      &:hover {
+        background: url('../../img/arrowDownActive.svg') center no-repeat;
+        background-size: 40px;
+        background-color: $collapserActiveDisabled;
+      }
+
+      &.expand {
+        background: url('../../img/arrowDown.svg') center no-repeat;
+        background-size: 40px;
+        transform: rotateX(180deg);
+        background-color: $collapserDisabled;
+
+        &:hover {
+          background: url('../../img/arrowDownActive.svg') center no-repeat;
+          background-size: 40px;
+          transform: rotateX(180deg);
+          background-color: $collapserActiveDisabled;
+        }
+      }
+    }
+  }
+}

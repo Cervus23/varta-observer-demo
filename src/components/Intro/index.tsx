@@ -1,4 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import {
+  appLogo,
+  electronLogo,
+  reactLogo,
+  reduxLogo,
+  mapDisplaying,
+} from "../../img/exports.ts";
 import style from "./style.module.scss";
 
 const Intro = () => {
@@ -7,7 +15,7 @@ const Intro = () => {
       <div className={style.header}>
         <div className={style.titleBox}>
           <h1>Varta Observer Web demo</h1>
-          <img className={style.logo} src="./*" alt="logo" />
+          <img className={style.logo} src={appLogo} alt="logo" />
         </div>
         <p className={`${style.text} ${style.introText}`}>
           This is a demo of the desktop app VartaObserver which is powered by
@@ -16,17 +24,17 @@ const Intro = () => {
         <div className={style.techLogoBox}>
           <img
             className={`${style.techLogo} ${style.electron}`}
-            src="./*"
+            src={electronLogo}
             alt="Electron logo"
           />
           <img
             className={`${style.techLogo} ${style.react}`}
-            src="./*"
+            src={reactLogo}
             alt="React logo"
           />
           <img
             className={`${style.techLogo} ${style.redux}`}
-            src="./*"
+            src={reduxLogo}
             alt="Redux logo"
           />
         </div>
@@ -35,7 +43,11 @@ const Intro = () => {
         <p className={`${style.text} ${style.contentText}`}>
           In this demo, you can view the display of device readings on the map.
         </p>
-        <img className={style.contentImage} src="./*" alt="displaying" />
+        <img
+          className={style.contentImage}
+          src={mapDisplaying}
+          alt="displaying"
+        />
       </div>
       <div className={`${style.contentBox} ${style.secondBox}`}>
         <img className={style.contentImage} src="./*" alt="How to use" />
@@ -48,7 +60,9 @@ const Intro = () => {
             You can also adjust other parameters on the side panel and see how
             they affect the appearance.
           </p>
-          <button>Start</button>
+          <Link to="/main" className="link">
+            Start
+          </Link>
         </div>
       </div>
     </div>

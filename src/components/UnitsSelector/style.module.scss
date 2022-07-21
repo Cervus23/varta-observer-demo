@@ -1,0 +1,69 @@
+@import "../../scss/colors.scss";
+// @import '../../fonts/fonts.scss';
+
+.unitsSelector {
+  display: grid;
+  row-gap: 10px;
+  text-transform: uppercase;
+  font-family: "Commissioner-Medium";
+  text-align: center;
+
+  .unitsTitle {
+    margin: 0;
+    margin-left: 35px;
+    font-size: 16px;
+  }
+  .unitsSelection {
+    display: grid;
+    row-gap: 10px;
+    margin-bottom: 10px;
+    .radioItem {
+      .radioButton {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        + label {
+          display: grid;
+          width: fit-content;
+          grid-template-columns: max-content max-content;
+          column-gap: 10px;
+          align-items: center;
+          margin-left: 15px;
+          user-select: none;
+          cursor: pointer;
+          &.disabled {
+            color: $disabledFont;
+          }
+        }
+        + label::before {
+          content: "";
+          width: 20px;
+          height: 20px;
+          box-sizing: border-box;
+          border: solid 1px $mainBorder;
+          border-radius: 50%;
+          background-color: $inputBgrnd;
+          cursor: pointer;
+          transition: all 0.1s;
+        }
+        + .disabled::before {
+          background: transparent;
+        }
+        &:checked + label::before {
+          border: solid 1px $active;
+          background: radial-gradient($active 40%, $inputBgrnd 50%);
+        }
+        &:checked + .disabled::before {
+          border: solid 1px $mainBorder;
+          background: transparent;
+        }
+      }
+
+      .radioName {
+        font-family: "Montserrat-Regular";
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+  }
+}

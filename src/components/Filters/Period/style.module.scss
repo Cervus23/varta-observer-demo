@@ -1,0 +1,84 @@
+@import "../../../scss/colors.scss";
+// @import '../../../fonts/fonts.scss';
+
+.periodForm {
+  display: grid;
+  grid-template-areas:
+    "errForm"
+    "rangeFrom"
+    "rangeTo";
+  row-gap: 10px;
+  .errFormMessage {
+    grid-area: errForm;
+    text-align: center;
+    min-height: 15px;
+    padding-left: 15px;
+  }
+  .errMessage {
+    font-family: "Montserrat-SemiBold";
+
+    margin-right: 15px;
+    font-size: 12px;
+    margin-left: 2px;
+    color: $errorFont;
+  }
+  .periodRange {
+    display: grid;
+    grid-template-areas:
+      "title date"
+      "null dateErr";
+    margin-left: 17px;
+    margin-right: 15px;
+    align-items: center;
+    grid-template-columns: 23% 77%;
+    row-gap: 3px;
+    .periodTitle {
+      grid-area: title;
+      font-family: "Montserrat-SemiBold";
+      font-size: 14px;
+      line-height: 17px;
+      text-transform: capitalize;
+      color: $mainFont;
+      &.errText {
+        font-weight: bold;
+        color: $errorFont;
+      }
+      &.disabled {
+        color: $disabledFont;
+      }
+    }
+
+    .dateErr {
+      grid-area: dateErr;
+    }
+    input {
+      font-family: "Montserrat-Regular";
+      font-size: 14px;
+      line-height: 17px;
+      border-radius: 0%;
+      border: 2px solid $mainBorder;
+      outline: none;
+
+      &:focus {
+        border: 2px solid $active;
+      }
+    }
+    .dateInput {
+      grid-area: date;
+    }
+    .errInput {
+      border-color: $errMessage;
+      background-color: $errInputBgrnd;
+      color: $errorFont;
+      &:focus {
+        border-color: $errMessage;
+      }
+    }
+  }
+  .rangeFrom {
+    grid-area: rangeFrom;
+  }
+  .rangeTo {
+    grid-area: rangeTo;
+  }
+}
